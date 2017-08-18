@@ -13,7 +13,7 @@
                 if (status === 'OK') {
                     callback(response);
                 } else {
-                    errorCallback('Directions request failed due to ' + status);
+                    errorCallback(status);
                 }
             });
         }

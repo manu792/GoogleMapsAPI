@@ -67,8 +67,8 @@
         infoWindow = factory.setInfoWindow(map);
         infoWindow.setPosition(map.getCenter());
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+                              'Error: El servicio de Geolocalizacion ha fallado.' :
+                              'Error: Su browser no soporta Geolocalizacion.');
     }
 
     function calculateAndDisplayRoute() {
@@ -91,7 +91,7 @@
             boxes = routeBoxer.box(path, distance);
             getPlacesInRoute(boxes, 0);
         }, function (response) {
-            alert('Directions request failed due to ' + status);
+            alert('Solicitud de direccion ha fallado con el error ' + response);
         });
     }
 
@@ -208,12 +208,12 @@
             content = '<div><strong>' + place.name + '</strong><br>' +
               'Place ID: ' + place.place_id + '<br>' +
               place.formatted_address + '<br>' +
-              '<button id="addToFavorites"><strong>Agregar a Favoritos</strong></button>' + '</div>'
+              '<button id="addToFavorites" class="btn btn-success"><strong>Agregar a Favoritos</strong></button>' + '</div>'
         } else {
             content = '<div><strong>' + place.name + '</strong><br>' +
               'Place ID: ' + place.place_id + '<br>' +
               place.formatted_address + '<br>' +
-              '<button id="removeFromFavorites"><strong>Eliminar de Favoritos</strong></button>' + '</div>'
+              '<button id="removeFromFavorites" class="btn btn-danger"><strong>Eliminar de Favoritos</strong></button>' + '</div>'
         }
         return content;
     }
@@ -250,8 +250,6 @@
     };
     document.getElementById('routeBtn').addEventListener('click', onRouteHandler);
     document.getElementById('geo-position').addEventListener('change', onGeoPositionHandler);
-    //document.getElementById('start').addEventListener('change', onChangeHandler);
-    //document.getElementById('end').addEventListener('change', onChangeHandler);
     document.getElementById('nearby').addEventListener('click', onClickNearby);
 
 }(  new DirectionService(),
