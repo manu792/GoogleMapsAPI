@@ -9,7 +9,7 @@
                 icon: {
                     size: new google.maps.Size(width, height),
                     scaledSize: new google.maps.Size(width, height),
-                    url: localStorage.getItem(place.place_id) != null ? '/Contents/Images/ic_favorite_black_24dp_2x.png' : place.icon
+                    url: localStorage.getItem(place.place_id) != null ? '/Content/Images/ic_favorite_black_24dp_2x.png' : place.icon
                 }
             });
         }

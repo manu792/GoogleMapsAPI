@@ -12,7 +12,8 @@
                     callback(currentPositionCoordinates);
                 }, function () {
                     handleLocationError(true);
-                });
+                },
+                { timeout: 30000, enableHighAccuracy: true, maximumAge: 75000 });
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false);

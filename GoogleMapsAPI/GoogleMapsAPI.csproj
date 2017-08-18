@@ -58,8 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Contents\Images\ic_favorite_black_24dp_2x.png" />
-    <Content Include="Contents\Style.css" />
+    <Content Include="Content\Images\ic_favorite_black_24dp_2x.png" />
+    <Content Include="Content\Style.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
