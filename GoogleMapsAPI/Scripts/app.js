@@ -143,11 +143,15 @@
         var height = 20;
         var width = 20;
 
-        placesService.getPlaceDetails({ placeId: place.place_id }, map, function (place) {
-            var marker = markerService.createMarker(place, map, width, height);
-            markers.push(marker);
-            setMarkerClickHandler(marker, place);
-        });
+        var marker = markerService.createMarker(place, map, width, height);
+        markers.push(marker);
+        setMarkerClickHandler(marker, place);
+
+        //placesService.getPlaceDetails({ placeId: place.place_id }, map, function (place) {
+        //    var marker = markerService.createMarker(place, map, width, height);
+        //    markers.push(marker);
+        //    setMarkerClickHandler(marker, place);
+        //});
     }
 
     function changeMarkerInfo(place) {
@@ -160,13 +164,14 @@
     }
 
     function setMarkerClickHandler(marker, place) {
-        var content = getMarkerContent(place);
-
         google.maps.event.addListener(marker, 'click', function () {
-            infoWindow = factory.setInfoWindow(map);
-            infoWindow.setContent(content);
-            infoWindow.open(map, this);
-            setEventHandler(marker, place);
+            placesService.getPlaceDetails({ placeId: place.place_id }, map, function (place) {
+                var content = getMarkerContent(place);
+                infoWindow = factory.setInfoWindow(map);
+                infoWindow.setContent(content);
+                infoWindow.open(map, marker);
+                setEventHandler(marker, place);
+            });
         });
     }
 
